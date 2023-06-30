@@ -1,0 +1,85 @@
+[gd_resource type="Theme" load_steps=20 format=2]
+
+[ext_resource path="res://fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFontData" id=15]
+font_path = "res://fonts/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=16]
+use_filter = true
+font_data = SubResource( 15 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.145098, 0.145098, 0.145098, 0.588235 )
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.603922, 0.603922, 0.603922, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.254902, 0.254902, 0.254902, 1 )
+
+[sub_resource type="DynamicFont" id=21]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=19]
+font_path = "res://fonts/Roboto-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=20]
+use_filter = true
+font_data = SubResource( 19 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.286275, 0.286275, 0.286275, 1 )
+shadow_color = Color( 0, 0, 0, 0.392157 )
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.286275, 0.286275, 0.286275, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.121569, 0.121569, 0.121569, 1 )
+border_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+
+[sub_resource type="DynamicFontData" id=17]
+font_path = "res://fonts/Roboto-Light.ttf"
+
+[sub_resource type="DynamicFont" id=18]
+size = 14
+use_filter = true
+font_data = SubResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0.0392157 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[resource]
+Button/fonts/font = SubResource( 16 )
+Button/styles/disabled = SubResource( 4 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 1 )
+Label/fonts/font = SubResource( 21 )
+LineEdit/fonts/font = SubResource( 20 )
+LineEdit/styles/focus = SubResource( 10 )
+LineEdit/styles/normal = SubResource( 11 )
+PanelContainer/styles/panel = SubResource( 5 )
+TabContainer/constants/side_margin = 20
+TabContainer/styles/panel = SubResource( 6 )
+TextEdit/fonts/font = SubResource( 18 )
+TextEdit/styles/focus = SubResource( 12 )
+TextEdit/styles/normal = SubResource( 13 )
+TextEdit/styles/read_only = SubResource( 14 )

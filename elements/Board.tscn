@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://elements/ConfirmationDialog.tscn" type="PackedScene" id=1]
+[ext_resource path="res://elements/board.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="Board" type="Control" groups=["saveload"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_right = 1014.0
+margin_bottom = 590.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_right = 1014.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+
+[node name="BoardTitle" type="LineEdit" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 950.0
+margin_bottom = 25.0
+grow_horizontal = 2
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+placeholder_text = "Board name"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="DELETE" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 954.0
+margin_right = 1014.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 60, 25 )
+text = "Delete"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 29.0
+margin_right = 1014.0
+margin_bottom = 590.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 1014.0
+margin_bottom = 561.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AddElementButton" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/PanelContainer"]
+margin_right = 200.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 20 )
+size_flags_vertical = 0
+text = "ADD NEW PANEL"
+
+[node name="ConfirmationDialog" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -113.0
+margin_top = -37.5
+margin_right = 113.0
+margin_bottom = 37.5
+
+[connection signal="text_changed" from="PanelContainer/VBoxContainer/HBoxContainer/BoardTitle" to="." method="_on_LineEdit_text_changed"]
+[connection signal="text_entered" from="PanelContainer/VBoxContainer/HBoxContainer/BoardTitle" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/DELETE" to="." method="_on_DELETE_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ScrollContainer/PanelContainer/AddElementButton" to="." method="_on_AddElementButton_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]

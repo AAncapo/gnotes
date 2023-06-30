@@ -1,0 +1,127 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://elements/note_panel.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0.0745098, 0.0745098, 1 )
+
+[node name="NotePanel" type="Control"]
+margin_right = 220.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 220, 75 )
+size_flags_horizontal = 0
+script = ExtResource( 2 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 220.0
+margin_bottom = 75.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 213.0
+margin_bottom = 68.0
+mouse_filter = 2
+size_flags_vertical = 3
+custom_constants/separation = 1
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 206.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
+mouse_filter = 2
+color = Color( 1, 1, 1, 0.0784314 )
+
+[node name="HeaderControl" type="Control" parent="PanelContainer/VBoxContainer"]
+margin_right = 206.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HeaderControl"]
+anchor_left = 0.0290698
+anchor_top = 0.166667
+anchor_right = 0.97093
+anchor_bottom = 0.833333
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DeleteButton" type="Button" parent="PanelContainer/VBoxContainer/HeaderControl/HBoxContainer"]
+margin_right = 15.0
+margin_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 15, 15 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+text = "x"
+icon_align = 1
+
+[node name="Title" type="LineEdit" parent="PanelContainer/VBoxContainer/HeaderControl/HBoxContainer"]
+margin_left = 19.0
+margin_right = 194.0
+margin_bottom = 24.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+placeholder_text = "title"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Buttons" type="Control" parent="PanelContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 206.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Buttons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NewNoteButton" type="Button" parent="PanelContainer/VBoxContainer/Buttons/HBoxContainer"]
+margin_left = 23.0
+margin_right = 106.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+text = "Check note"
+
+[node name="AddTextNote" type="Button" parent="PanelContainer/VBoxContainer/Buttons/HBoxContainer"]
+margin_left = 110.0
+margin_right = 182.0
+margin_bottom = 20.0
+text = "Text note"
+
+[node name="Notes" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 206.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 2
+alignment = 1
+
+[node name="CheckedNotes" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 61.0
+margin_right = 206.0
+margin_bottom = 61.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+alignment = 1
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HeaderControl/HBoxContainer/DeleteButton" to="." method="_on_DeleteButton_pressed"]
+[connection signal="text_entered" from="PanelContainer/VBoxContainer/HeaderControl/HBoxContainer/Title" to="." method="_on_Title_text_entered"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/HBoxContainer/NewNoteButton" to="." method="_on_NewNoteButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/HBoxContainer/AddTextNote" to="." method="_on_AddTextNote_pressed"]

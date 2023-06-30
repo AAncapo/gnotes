@@ -1,0 +1,76 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "UIElement",
+"class": "Board",
+"language": "GDScript",
+"path": "res://elements/board.gd"
+}, {
+"base": "UIElement",
+"class": "Note",
+"language": "GDScript",
+"path": "res://elements/note.gd"
+}, {
+"base": "UIElement",
+"class": "NotePanel",
+"language": "GDScript",
+"path": "res://elements/note_panel.gd"
+}, {
+"base": "Button",
+"class": "ShortcutButton",
+"language": "GDScript",
+"path": "res://elements/shortcut_button.gd"
+}, {
+"base": "Control",
+"class": "UIElement",
+"language": "GDScript",
+"path": "res://elements/element.gd"
+} ]
+_global_script_class_icons={
+"Board": "",
+"Note": "",
+"NotePanel": "",
+"ShortcutButton": "",
+"UIElement": ""
+}
+
+[application]
+
+config/name="GNotes"
+run/main_scene="res://Main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+save={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"
